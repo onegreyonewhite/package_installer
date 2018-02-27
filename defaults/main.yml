@@ -1,4 +1,3 @@
+update_packages: no
 enable_epel: no
-system_packages:
-  - wget
-  - nano
+system_packages: []

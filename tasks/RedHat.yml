@@ -1,10 +1,4 @@
 ---
-- name: Install epel-repo
-  when: enable_epel
-  import_role:
-      name: geerlingguy.repo-epel
-  tags: epel
-
 - name: Install packages
   yum:
     name: "{{ item }}"
@@ -12,3 +6,4 @@
   when: ansible_os_family == 'RedHat'
   with_items:
     - "{{ system_packages }}"
+  tags: install
