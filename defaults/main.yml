@@ -1,0 +1,4 @@
+enable_epel: no
+system_packages:
+  - wget
+  - nano
