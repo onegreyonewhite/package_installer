@@ -20,7 +20,7 @@ update_packages: no
 Don't update system packages before any operations.
 
 ```yaml
-enable_epel: no
+enable_epel_release: no
 ``` 
 Don't install epel-release in RHEL OS for extra-packages.
 If you want to install mc or htop you should set `yes`.
