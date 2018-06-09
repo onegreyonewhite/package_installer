@@ -1,4 +1,5 @@
 ---
+allow_duplicates: true
 dependencies:
   - role: lborguetti.system-update
     when: update_packages
