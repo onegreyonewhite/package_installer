@@ -1,9 +1,7 @@
 ---
 - name: Install packages
   yum:
-    name: "{{ item }}"
+    name: "{{ system_packages }}"
   become: yes
   when: ansible_os_family == 'RedHat'
-  with_items:
-    - "{{ system_packages }}"
   tags: install
