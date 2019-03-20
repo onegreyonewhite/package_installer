@@ -50,6 +50,12 @@ Example Playbook
 ----------------
 
         - hosts: servers
+          vars:
+            update_packages: yes
+            system_packages:
+                - wget
+                - traceroute
+                - nano
           roles:
              - { role: onegreyonewhite.package_installer }
 
