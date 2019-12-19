@@ -1,4 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Ansible template
 *.retry
-
+.env
+.vscode
+.yamllint
+molecule/default/tests/__pycache__/

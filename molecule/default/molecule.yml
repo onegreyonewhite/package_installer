@@ -1,0 +1,37 @@
+---
+dependency:
+  name: galaxy
+  options:
+    ignore-certs: True
+    ignore-errors: True
+    role-file: ./roles/requirements.yml
+driver:
+  name: docker
+lint:
+  name: yamllint
+  options:
+    config-data:
+      ignore: .env/
+platforms:
+  - name: instance-ubuntu1604
+    image: ubuntu:xenial
+  - name: instance-ubuntu1804
+    image: ubuntu:bionic
+  - name: instance-debian9
+    image: debian:stretch
+  - name: instance-debian10
+    image: debian:buster
+  - name: instance-centos6
+    image: centos:6
+  - name: instance-centos7
+    image: centos:7
+provisioner:
+  name: ansible
+  options:
+    v: true
+  lint:
+    name: ansible-lint
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

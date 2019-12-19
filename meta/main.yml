@@ -1,12 +1,12 @@
 ---
 allow_duplicates: true
 dependencies:
-  - role: lborguetti.system-update
-    when: update_packages
-    tags: prepare
-  - role: geerlingguy.repo-epel
-    when: enable_epel
-    tags: prepare
+- role: lborguetti.system-update
+  when: update_packages
+  tags: prepare
+- role: geerlingguy.repo-epel
+  when: enable_epel
+  tags: prepare
 
 galaxy_info:
   author: onegreyonewhite
@@ -14,22 +14,21 @@ galaxy_info:
   company: "onegreyonewhite"
   license: "license (BSD)"
   min_ansible_version: 2.5
+  max_ansible_version: 2.11
   platforms:
     - name: Ubuntu
       versions:
-        - trusty
         - xenial
         - bionic
     - name: Debian
       versions:
-        - jessie
         - stretch
+        - buster
     - name: EL
       versions:
-        - 5
         - 6
         - 7
-  categories:
+  galaxy_tags:
     - web
     - linux
     - packaging
