@@ -1,4 +1,4 @@
 update_packages: no
-enable_epel_release: no
+enable_epel_release: no 
 system_packages: []
-enable_epel: "{% if ansible_os_family == 'RedHat' and enable_epel_release %}true{% else %}false{% endif %}"
+enable_epel: "{% if ansible_os_family == 'RedHat' and enable_epel_release %}true{% else %}false{% endif %} | bool"

@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    update_packages: yes
+    system_packages:
+      - traceroute
+  roles:
+    - role: package_installer
