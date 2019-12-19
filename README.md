@@ -68,3 +68,4 @@ Author Information
 ------------------
 
 [Sergey Klyuykov](https://github.com/onegreyonewhite)
+[Konstantin Shumkin](https://github.com/kotofeych)
