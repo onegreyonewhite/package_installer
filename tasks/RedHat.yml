@@ -1,7 +1,24 @@
 ---
-- name: Install packages
+- name: "Include role repo-epel"
+  include_role:
+    name: geerlingguy.repo-epel
+  when: enable_epel
+
+- name: Update cache (OS family - RedHat)
+  yum:
+    update_cache: yes
+  become: yes
+  when: ansible_os_family == 'RedHat'
+
+- name: Upgrate all packages (OS family - RedHat)
+  yum:
+    name: '*'
+    state: latest
+  become: yes
+  when: ansible_os_family == 'RedHat' and update_packages
+
+- name: Install packages (OS family - RedHat)
   yum:
     name: "{{ system_packages }}"
   become: yes
-  when: ansible_os_family == 'RedHat'
-  tags: install
+  when: ansible_os_family == 'RedHat' and system_packages

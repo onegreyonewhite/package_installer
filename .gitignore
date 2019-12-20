@@ -5,3 +5,5 @@
 .vscode
 .yamllint
 molecule/default/tests/__pycache__/
+.tox
+pytestdebug.log

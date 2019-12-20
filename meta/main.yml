@@ -1,12 +1,9 @@
 ---
 allow_duplicates: true
-dependencies:
-- role: lborguetti.system-update
-  when: update_packages
-  tags: prepare
-- role: geerlingguy.repo-epel
-  when: enable_epel
-  tags: prepare
+# dependencies:
+# - role: geerlingguy.repo-epel
+#   when: enable_epel
+#   tags: prepare
 
 galaxy_info:
   author: onegreyonewhite
