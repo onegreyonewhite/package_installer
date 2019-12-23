@@ -13,10 +13,14 @@ lint:
     config-data:
       ignore: .env/
 platforms:
+  - name: instance-ubuntu1404
+    image: ubuntu:trusty
   - name: instance-ubuntu1604
     image: ubuntu:xenial
   - name: instance-ubuntu1804
     image: ubuntu:bionic
+  - name: instance-debian8
+    image: debian:jessie
   - name: instance-debian9
     image: debian:stretch
   - name: instance-debian10
