@@ -24,4 +24,4 @@ jobs:
           pip install tox
       - name: Test with molecule with Ansible ${{ matrix.ansible-version }}
         run: |
-          tox -e py37-${{ matrix.ansible-version }}
+          tox -e py37-ansible${{ matrix.ansible-version }}
