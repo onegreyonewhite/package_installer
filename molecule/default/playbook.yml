@@ -2,6 +2,7 @@
 - name: Converge
   hosts: all
   vars:
+    enable_epel_release: yes
     update_packages: yes
     system_packages:
       - traceroute

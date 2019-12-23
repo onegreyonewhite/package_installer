@@ -1,6 +1,19 @@
 ---
-- name: Install packages
+- name: System update (OS family - Debian)
+  apt:
+    update-cache: yes
+  become: yes
+  when: ansible_os_family == 'Debian'
+  changed_when: False
+
+- name: System upgrade (OS family - Debian)
+  apt:
+    upgrade: dist
+  become: yes
+  when: ansible_os_family == 'Debian' and update_packages
+
+- name: Install packages (OS family - Debian)
   apt:
     name: "{{ system_packages }}"
   become: yes
-  when: ansible_os_family == 'Debian'
+  when: ansible_os_family == 'Debian' and system_packages
