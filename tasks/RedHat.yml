@@ -1,11 +1,4 @@
 ---
-- name: Update cache (OS family - RedHat)
-  yum:
-    update_cache: yes
-  become: yes
-  when: ansible_os_family == 'RedHat' and not enable_epel_release
-  changed_when: False
-
 - name: Upgrate all packages (OS family - RedHat)
   yum:
     name: '*'
