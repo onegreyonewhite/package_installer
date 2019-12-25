@@ -2,7 +2,7 @@
 allow_duplicates: true
 dependencies:
 - role: geerlingguy.repo-epel
-  when: enable_epel
+  when: enable_epel and redhat_package_manager == 'yum'
   tags: prepare
 
 galaxy_info:

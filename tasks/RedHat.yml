@@ -1,13 +1,3 @@
 ---
-- name: Upgrate all packages (OS family - RedHat)
-  yum:
-    name: '*'
-    state: latest
-  become: yes
-  when: ansible_os_family == 'RedHat' and update_packages
-
-- name: Install packages (OS family - RedHat)
-  yum:
-    name: "{{ system_packages }}"
-  become: yes
-  when: ansible_os_family == 'RedHat' and system_packages
+- name: "Include tasks for package manager"
+  include_tasks: "{{ redhat_package_manager }}.yml"

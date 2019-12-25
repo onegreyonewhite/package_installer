@@ -1,0 +1,2 @@
+redhat_package_manager: "{% if ansible_distribution_major_version <= '7' %}yum{% elif ansible_distribution_major_version >= '8' %}dnf{% endif %}"
+check_system_packages: "{{ system_packages |length > 0 }}"
