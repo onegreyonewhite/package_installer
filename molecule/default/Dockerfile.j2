@@ -14,10 +14,13 @@ ENV {{ var }} {{ value }}
 {% endfor %}
 {% endif %}
 
-RUN if [ $(command -v apt-get) ]; then apt-get update && apt-get install -y python-minimal sudo bash ca-certificates iproute2 && apt-get clean; \
-    elif [ $(command -v apt) ]; then apt update && apt install -y python-minimal sudo bash ca-certificates iproute2 && apt clean; \
-    elif [ $(command -v dnf) ]; then dnf makecache && dnf --assumeyes install python sudo python-devel python*-dnf bash iproute && dnf clean all; \
+RUN if [ $(command -v apt-get) ]; then apt-get update && apt-get install -y python-minimal python3-apt sudo bash ca-certificates iproute2 && apt-get clean; \
+    elif [ $(command -v apt) ]; then apt update && apt install -y python-minimal sudo python3-apt bash ca-certificates iproute2 && apt clean; \
+    elif [ $(command -v dnf) ]; then dnf makecache && dnf --assumeyes install python3 sudo python3-devel python3-dnf bash iproute && dnf clean all && \
+                                     alternatives --set python /usr/bin/python3; \
     elif [ $(command -v yum) ]; then yum makecache fast && yum install -y python sudo yum-plugin-ovl bash iproute && sed -i 's/plugins=0/plugins=1/g' /etc/yum.conf && yum clean all; \
     elif [ $(command -v zypper) ]; then zypper refresh && zypper install -y python sudo bash python-xml iproute2 && zypper clean -a; \
     elif [ $(command -v apk) ]; then apk update && apk add --no-cache python sudo bash ca-certificates; \
     elif [ $(command -v xbps-install) ]; then xbps-install -Syu && xbps-install -y python sudo bash ca-certificates iproute2 && xbps-remove -O; fi
+
+# ln -s /usr/bin/python /usr/bin/python3
